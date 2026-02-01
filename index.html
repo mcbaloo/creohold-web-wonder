@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreoHold - Move Money Freely Across Borders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#0F52BA',
+                        brandDark: '#0A3D8F',
+                        accent: '#FF6B35',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-slideUp {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .animate-pulse-slow {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(15, 82, 186, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-100 fixed w-full top-0 z-50 backdrop-blur-sm bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-10">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-brand rounded-lg mr-2"></div>
+                        <span class="text-xl font-bold text-gray-900">CreoHold</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#features" class="text-sm text-gray-700 hover:text-brand transition-colors">Products</a>
+                        <a href="#api" class="text-sm text-gray-700 hover:text-brand transition-colors">Developers</a>
+                        <a href="#pricing" class="text-sm text-gray-700 hover:text-brand transition-colors">Pricing</a>
+                        <a href="#contact" class="text-sm text-gray-700 hover:text-brand transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="hidden sm:block text-sm text-gray-700 hover:text-brand transition-colors">Sign in</button>
+                    <button class="px-5 py-2.5 bg-brand text-white text-sm font-medium rounded-lg hover:bg-brandDark transition-all transform hover:scale-105">
+                        Get started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden relative">
+        <!-- Subtle dot pattern -->
+        <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle, #000 1px, transparent 1px); background-size: 24px 24px;"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center pt-12">
+                <div class="animate-slideUp">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 text-green-700 text-sm font-medium rounded-full mb-6">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Fully Licensed & Regulated • 1M+ Users</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                        Buy, sell, and send crypto
+                        <span class="text-brand">instantly</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
+                        Trade 52+ digital assets, earn up to 12% annual interest on savings, and get instant Naira loans using your crypto as collateral.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-7 py-4 bg-gray-900 text-white text-base font-semibold rounded-lg hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            Get Started Free
+                        </button>
+                        <button class="px-7 py-4 bg-brand text-white text-base font-semibold rounded-lg hover:bg-brandDark transition-all transform hover:scale-105">
+                            Contact Sales
+                        </button>
+                    </div>
+                    <div class="mt-10 flex flex-wrap items-center gap-6 text-sm text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Instant transactions</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Enterprise-grade security</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>24/7 human support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative animate-fadeIn stagger-2">
+                    <div class="animate-float">
+                        <div class="bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-gray-100">
+                            <div class="flex items-center justify-between mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-500 mb-1">Your balance</p>
+                                    <p class="text-3xl font-bold text-gray-900">$45,231.89</p>
+                                </div>
+                                <div class="px-3 py-1.5 bg-green-100 text-green-700 text-sm font-semibold rounded-full">
+                                    +12.5%
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="p-4 bg-blue-50 rounded-xl">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-orange-400 rounded-full"></div>
+                                        <span class="text-xs text-gray-600 font-medium">Bitcoin</span>
+                                    </div>
+                                    <p class="text-lg font-bold text-gray-900">1.25 BTC</p>
+                                    <p class="text-xs text-green-600 font-medium">+5.2%</p>
+                                </div>
+                                <div class="p-4 bg-purple-50 rounded-xl">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-purple-400 rounded-full"></div>
+                                        <span class="text-xs text-gray-600 font-medium">Ethereum</span>
+                                    </div>
+                                    <p class="text-lg font-bold text-gray-900">8.45 ETH</p>
+                                    <p class="text-xs text-green-600 font-medium">+3.8%</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="flex-1 py-3 bg-brand text-white font-medium rounded-lg hover:bg-brandDark transition-colors">
+                                    Send
+                                </button>
+                                <button class="flex-1 py-3 border border-gray-200 text-gray-700 font-medium rounded-lg hover:border-brand hover:text-brand transition-colors">
+                                    Receive
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating elements -->
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-accent/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-brand/20 rounded-full blur-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-center text-sm font-medium text-gray-500 mb-8">TRUSTED BY LEADING COMPANIES</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
+                <div class="flex items-center justify-center">
+                    <svg class="h-8 text-gray-600" viewBox="0 0 120 30" fill="currentColor">
+                        <text x="10" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="18">TechCorp</text>
+                    </svg>
+                </div>
+                <div class="flex items-center justify-center">
+                    <svg class="h-8 text-gray-600" viewBox="0 0 120 30" fill="currentColor">
+                        <text x="10" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="18">PayFast</text>
+                    </svg>
+                </div>
+                <div class="flex items-center justify-center">
+                    <svg class="h-8 text-gray-600" viewBox="0 0 120 30" fill="currentColor">
+                        <text x="10" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="18">GlobalEx</text>
+                    </svg>
+                </div>
+                <div class="flex items-center justify-center">
+                    <svg class="h-8 text-gray-600" viewBox="0 0 120 30" fill="currentColor">
+                        <text x="10" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="18">SwiftPay</text>
+                    </svg>
+                </div>
+                <div class="flex items-center justify-center">
+                    <svg class="h-8 text-gray-600" viewBox="0 0 120 30" fill="currentColor">
+                        <text x="10" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="18">NetFlow</text>
+                    </svg>
+                </div>
+                <div class="flex items-center justify-center">
+                    <svg class="h-8 text-gray-600" viewBox="0 0 120 30" fill="currentColor">
+                        <text x="10" y="20" font-family="Arial, sans-serif" font-weight="bold" font-size="18">DataHub</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="text-center animate-slideUp stagger-1">
+                    <div class="inline-block p-3 bg-brand/10 rounded-xl mb-3">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <p class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">1M+</p>
+                    <p class="text-sm text-gray-600">Active Users</p>
+                </div>
+                <div class="text-center animate-slideUp stagger-2">
+                    <div class="inline-block p-3 bg-brand/10 rounded-xl mb-3">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <p class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">$2.5B+</p>
+                    <p class="text-sm text-gray-600">Total Volume Traded</p>
+                </div>
+                <div class="text-center animate-slideUp stagger-3">
+                    <div class="inline-block p-3 bg-brand/10 rounded-xl mb-3">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                    </div>
+                    <p class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">70+</p>
+                    <p class="text-sm text-gray-600">Digital Assets</p>
+                </div>
+                <div class="text-center animate-slideUp stagger-4">
+                    <div class="inline-block p-3 bg-brand/10 rounded-xl mb-3">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <p class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">&lt;2 min</p>
+                    <p class="text-sm text-gray-600">Average Transaction Time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Everything you need in one app</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Trade crypto, earn interest, access credit, and manage your finances — all in one place
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group p-6 bg-white border border-gray-200 rounded-2xl hover:shadow-xl hover:border-brand transition-all duration-300 animate-slideUp stagger-1">
+                    <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Trade Instantly</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Buy, sell, and convert 70+ digital assets with the best local rates. Set limit orders and automate your strategy.
+                    </p>
+                </div>
+
+                <div class="group p-6 bg-white border border-gray-200 rounded-2xl hover:shadow-xl hover:border-brand transition-all duration-300 animate-slideUp stagger-2">
+                    <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Earn Up to 12%</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Save in Naira or USD, choose fixed or flexible plans, and earn daily interest you can withdraw anytime.
+                    </p>
+                </div>
+
+                <div class="group p-6 bg-white border border-gray-200 rounded-2xl hover:shadow-xl hover:border-brand transition-all duration-300 animate-slideUp stagger-3">
+                    <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Spend Anywhere</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Get virtual and physical debit cards. Shop online or in-store, earn instant cashback on every purchase.
+                    </p>
+                </div>
+
+                <div class="group p-6 bg-white border border-gray-200 rounded-2xl hover:shadow-xl hover:border-brand transition-all duration-300 animate-slideUp stagger-4">
+                    <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Borrow Instantly</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Use your crypto or savings as collateral to get instant Naira loans. Keep your holdings and benefit if they rise.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Documentation Section -->
+    <section id="api" class="py-20 px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Build with our API</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Use our payments infrastructure to add crypto capabilities to your product. Get started in minutes with our comprehensive documentation.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 bg-brand rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Complete API reference</h3>
+                                <p class="text-sm text-gray-600">Detailed documentation for every endpoint with request/response examples.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 bg-brand rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Client libraries</h3>
+                                <p class="text-sm text-gray-600">Official SDKs for Node.js, Python, Ruby, PHP, Java, and .NET.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 bg-brand rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Webhook notifications</h3>
+                                <p class="text-sm text-gray-600">Real-time updates for payment confirmations and transaction events.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="group inline-flex items-center px-6 py-3 bg-brand text-white text-sm font-medium rounded-lg hover:bg-brandDark transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        Read the docs
+                        <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg p-6">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <pre class="text-sm text-green-400 font-mono overflow-x-auto"><code>curl https://api.creohold.com/v1/payments \
+  -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: \
+  -d amount=2500 \
+  -d currency=usd \
+  -d crypto_currency=btc \
+  -d "description=Payment for invoice"
+
+{
+  "id": "pay_1NirD82eZvKYlo2C",
+  "object": "payment",
+  "amount": 2500,
+  "status": "succeeded",
+  "crypto_amount": "0.00058",
+  "crypto_currency": "btc"
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Trust Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Trusted and secure</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Enterprise-grade security to keep your funds safe in line with global standards
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-2xl mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Fully Licensed</h3>
+                    <p class="text-sm text-gray-600">
+                        Licensed and regulated by the Securities and Exchange Commission (SEC)
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-brand/10 rounded-2xl mb-4">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bank-Level Security</h3>
+                    <p class="text-sm text-gray-600">
+                        Advanced encryption and multi-factor authentication protect your account 24/7
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-2xl mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">24/7 Support</h3>
+                    <p class="text-sm text-gray-600">
+                        Real human support available around the clock. No annoying robocalls.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-brand/10 text-brand text-sm font-semibold rounded-full animate-fadeIn">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <span>Join 23,000+ businesses</span>
+            </div>
+            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-slideUp">
+                Start moving money <span class="text-brand">freely</span>
+            </h2>
+            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto animate-fadeIn stagger-1">
+                Get instant access to crypto payments, conversions, and bill pay. No setup fees, no monthly charges.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slideUp stagger-2">
+                <button class="group px-8 py-4 bg-gray-900 text-white text-base font-semibold rounded-xl hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl hover-lift">
+                    Get Started Free
+                    <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+                <button class="px-8 py-4 bg-brand border-2 border-brand text-white text-base font-semibold rounded-xl hover:bg-brandDark hover:border-brandDark transition-all hover-lift">
+                    Contact Sales
+                </button>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-6 mt-8 text-sm text-gray-500 animate-fadeIn stagger-3">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span>No credit card required</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span>Free to start</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <span>Cancel anytime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security & Trust Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Trusted and secure</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Enterprise-grade security to keep your funds safe in line with global standards
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-2xl mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Fully Licensed</h3>
+                    <p class="text-sm text-gray-600">
+                        Licensed and regulated by the Securities and Exchange Commission (SEC)
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-brand/10 rounded-2xl mb-4">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Bank-Level Security</h3>
+                    <p class="text-sm text-gray-600">
+                        Advanced encryption and multi-factor authentication protect your account 24/7
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-2xl mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">24/7 Support</h3>
+                    <p class="text-sm text-gray-600">
+                        Real human support available around the clock. No annoying robocalls.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+                <!-- Brand Column -->
+                <div class="col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-brand rounded-lg mr-2"></div>
+                        <span class="text-xl font-bold text-white">CreoHold</span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6 max-w-xs">
+                        Move money freely with crypto. Built for businesses and individuals who need fast, secure cross-border payments.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-brand flex items-center justify-center transition-all hover-lift">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-brand flex items-center justify-center transition-all hover-lift">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-brand flex items-center justify-center transition-all hover-lift">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 hover:bg-brand flex items-center justify-center transition-all hover-lift">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Products -->
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-4">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Payments</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Conversions</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Bill Pay</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Business</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Developers -->
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-4">Developers</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Documentation</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">API Reference</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Libraries</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Status</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">About</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Press</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-4">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Security</a></li>
+                        <li><a href="#" class="text-sm hover:text-brand transition-colors">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-gray-400">© 2026 CreoHold. All rights reserved.</p>
+                    <div class="flex flex-wrap gap-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-brand transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-brand transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-brand transition-colors">Cookie Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-brand transition-colors">Licenses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Height of fixed nav
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slideUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and stats
+        document.querySelectorAll('.hover-lift').forEach(el => observer.observe(el));
+
+        // Add parallax effect to hero blur elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.animate-float');
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.5 + (index * 0.1);
+                el.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
