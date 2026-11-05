@@ -1,0 +1,55 @@
+{
+  "airtime": [
+    { "id": "mtn-airtime",    "name": "MTN",         "category": "airtime",     "logoPlaceholder": "MTN",    "requiresCustomerNumber": true,  "customerLabel": "Phone number" },
+    { "id": "airtel-airtime", "name": "Airtel",      "category": "airtime",     "logoPlaceholder": "AIRTEL", "requiresCustomerNumber": true,  "customerLabel": "Phone number" },
+    { "id": "glo-airtime",    "name": "Glo",         "category": "airtime",     "logoPlaceholder": "GLO",    "requiresCustomerNumber": true,  "customerLabel": "Phone number" },
+    { "id": "9mobile-airtime","name": "9mobile",     "category": "airtime",     "logoPlaceholder": "9M",     "requiresCustomerNumber": true,  "customerLabel": "Phone number" }
+  ],
+  "data": [
+    { "id": "mtn-data",    "name": "MTN Data",    "category": "data", "logoPlaceholder": "MTN",    "requiresCustomerNumber": true, "customerLabel": "Phone number",
+      "plans": [
+        { "id": "mtn-1gb",  "label": "1 GB — 30 days",   "amountNGN": 1500 },
+        { "id": "mtn-2gb",  "label": "2 GB — 30 days",   "amountNGN": 2800 },
+        { "id": "mtn-5gb",  "label": "5 GB — 30 days",   "amountNGN": 5500 },
+        { "id": "mtn-10gb", "label": "10 GB — 30 days",  "amountNGN": 10000 }
+      ]
+    },
+    { "id": "airtel-data", "name": "Airtel Data", "category": "data", "logoPlaceholder": "AIRTEL", "requiresCustomerNumber": true, "customerLabel": "Phone number",
+      "plans": [
+        { "id": "airtel-1gb",  "label": "1.5 GB — 30 days", "amountNGN": 1500 },
+        { "id": "airtel-3gb",  "label": "3 GB — 30 days",   "amountNGN": 2500 },
+        { "id": "airtel-6gb",  "label": "6 GB — 30 days",   "amountNGN": 4500 }
+      ]
+    }
+  ],
+  "electricity": [
+    { "id": "ekedc",  "name": "EKEDC",  "category": "electricity", "logoPlaceholder": "EKEDC",  "requiresCustomerNumber": true, "customerLabel": "Meter number" },
+    { "id": "ikedc",  "name": "IKEDC",  "category": "electricity", "logoPlaceholder": "IKEDC",  "requiresCustomerNumber": true, "customerLabel": "Meter number" },
+    { "id": "aedc",   "name": "AEDC",   "category": "electricity", "logoPlaceholder": "AEDC",   "requiresCustomerNumber": true, "customerLabel": "Meter number" },
+    { "id": "phedc",  "name": "PHEDC",  "category": "electricity", "logoPlaceholder": "PHEDC",  "requiresCustomerNumber": true, "customerLabel": "Meter number" }
+  ],
+  "tv": [
+    { "id": "dstv",      "name": "DStv",       "category": "tv", "logoPlaceholder": "DSTV",   "requiresCustomerNumber": true, "customerLabel": "Smart card number",
+      "plans": [
+        { "id": "dstv-padi",    "label": "Padi",    "amountNGN": 2950  },
+        { "id": "dstv-yanga",   "label": "Yanga",   "amountNGN": 4200  },
+        { "id": "dstv-compact", "label": "Compact", "amountNGN": 15700 },
+        { "id": "dstv-premium", "label": "Premium", "amountNGN": 37000 }
+      ]
+    },
+    { "id": "gotv",      "name": "GOtv",       "category": "tv", "logoPlaceholder": "GOTV",   "requiresCustomerNumber": true, "customerLabel": "IUC number",
+      "plans": [
+        { "id": "gotv-supa",    "label": "Supa+",   "amountNGN": 9600  },
+        { "id": "gotv-supa2",   "label": "Supa",    "amountNGN": 7200  },
+        { "id": "gotv-max",     "label": "Max",     "amountNGN": 5700  }
+      ]
+    },
+    { "id": "startimes", "name": "StarTimes",  "category": "tv", "logoPlaceholder": "ST",     "requiresCustomerNumber": true, "customerLabel": "Smart card number",
+      "plans": [
+        { "id": "st-nova",     "label": "Nova",    "amountNGN": 1900  },
+        { "id": "st-basic",    "label": "Basic",   "amountNGN": 2600  },
+        { "id": "st-smart",    "label": "Smart",   "amountNGN": 4200  }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green-brand: #00D285;
+  --color-green-deep:  #006C44;
+  --color-green-muted: #00A368;
+  --color-navy:        #052338;
+  --color-navy-mid:    #0D3350;
+  --color-navy-light:  #0F4166;
+  --color-grey-light:  #F5F7FA;
+  --color-grey-mid:    #E0E8EF;
+  --color-grey-text:   #4A6070;
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  --radius-sm:  0.5rem;
+  --radius-md:  0.75rem;
+  --radius-lg:  1rem;
+  --radius-xl:  1.25rem;
+}
+
+/* ── Base ──────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-navy);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+address { font-style: normal; }
+
+/* ── Skip link ─────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--color-navy);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ── Focus ─────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-green-brand);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── Stepper animation ─────────────────── */
+@keyframes stepFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes tabSwitch {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-tab    { animation: tabSwitch 0.25s ease-out forwards; }
+.animate-fadeUp { animation: fadeUp   0.4s ease-out forwards; }
+
+/* ── Wallet mockup glows ───────────────── */
+.mockup-glow {
+  box-shadow: 0 24px 80px rgba(0, 210, 133, 0.12), 0 4px 24px rgba(5, 35, 56, 0.4);
+}
