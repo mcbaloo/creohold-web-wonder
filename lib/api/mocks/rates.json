@@ -1,0 +1,6 @@
+[
+  { "asset": "BTC",  "symbol": "₿",  "priceNGN": 158432500, "change24hPct":  1.42, "direction": "up"   },
+  { "asset": "ETH",  "symbol": "Ξ",  "priceNGN":   8921000, "change24hPct": -0.87, "direction": "down" },
+  { "asset": "USDT", "symbol": "₮",  "priceNGN":      1618, "change24hPct":  0.05, "direction": "up"   },
+  { "asset": "USDC", "symbol": "$",  "priceNGN":      1617, "change24hPct": -0.02, "direction": "flat" }
+]

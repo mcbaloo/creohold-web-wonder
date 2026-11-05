@@ -1,0 +1,34 @@
+[
+  {
+    "asset": "BTC",
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "networks": ["bitcoin"],
+    "minSendNGN": 5000,
+    "iconUrl": "/icons/btc.svg"
+  },
+  {
+    "asset": "ETH",
+    "name": "Ethereum",
+    "symbol": "ETH",
+    "networks": ["erc20"],
+    "minSendNGN": 2000,
+    "iconUrl": "/icons/eth.svg"
+  },
+  {
+    "asset": "USDT",
+    "name": "Tether USD",
+    "symbol": "USDT",
+    "networks": ["erc20", "trc20"],
+    "minSendNGN": 1000,
+    "iconUrl": "/icons/usdt.svg"
+  },
+  {
+    "asset": "USDC",
+    "name": "USD Coin",
+    "symbol": "USDC",
+    "networks": ["erc20-usdc"],
+    "minSendNGN": 1000,
+    "iconUrl": "/icons/usdc.svg"
+  }
+]
